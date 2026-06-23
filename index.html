@@ -204,16 +204,58 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .nav-links {
-    position: absolute; top: 70px; left: -100%; width: 100%;
-    background: white; flex-direction: column; text-align: center;
-    padding: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s;
+  
+  /* 1. ضبط الهيدر وصورة الخلفية */
+  header {
+    padding: 80px 20px !important; /* تقليل الارتفاع ليناسب شاشة التليفون */
+    background-size: contain !important; /* أو cover حسب رغبتك، contain تضمن ظهور الصورة كاملة دون قص */
+    background-position: center top !important;
   }
-  .nav-links.active { left: 0; }
-  .menu-toggle { display: block; }
-  .search-container input { width: 130px; }
-  .search-container input:focus { width: 160px; }
-  section { padding: 40px 5%; }
+
+  header h1 {
+    font-size: 1.8rem !important; /* تصغير حجم الخط للعناوين */
+  }
+
+  /* 2. ضبط روابط التنقل (Navbar) لكي تظهر ولا تختفي */
+  nav {
+    flex-direction: column; /* ترتيب اللوجو والروابط تحت بعض طالما العرض ضيق */
+    gap: 15px;
+    padding: 15px 10px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important; /* جعل الروابط بجانب بعضها بمقاس صغير */
+    justify-content: center;
+    gap: 15px !important;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem !important; /* تصغير الخط لتستوعبه الشاشة */
+    color: #3d262a !important; /* تأكدي أن اللون غامق وواضح وليس أبيض */
+  }
+
+  /* 3. ضبط المنتجات (Products Grid) */
+  #products {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important; /* يجعلها تترتب تلقائياً (كارتين في الصف أو كارت واحد) */
+    gap: 15px !important;
+    padding: 20px 10px !important;
+    width: 100% !important;
+    overflow-x: hidden; /* منع التصفح العرضي المزعج */
+  }
+
+  .product-card {
+    max-width: 100% !important; /* الكارت يأخذ مساحته المتاحة فقط بدون زيادة */
+    margin: 0 auto;
+  }
+
+  /* 4. منع الصفحة بأكملها من التحرك يميناً ويساراً */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
 }
 </style>
 </head>
