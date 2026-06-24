@@ -208,8 +208,8 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
   /* 1. إجبار حاوية المنتجات على الانقسام لعمودين مهما كان اسمها */
   .products, #products, [id*="products"], [class*="products"] {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important; /* عمودين متساويين بالملي */
-    gap: 10px !important; /* مسافة صغيرة جداً */
+    grid-template-columns: repeat(1fr, 1fr) !important; /* عمودين متساويين بالملي */
+    gap: 12px !important; /* مسافة صغيرة جداً */
     padding: 10px !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -219,7 +219,7 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
   .card, .product-card, .products > div, #products > div {
     width: 100% !important;
     min-width: 0 !important; /* السطر ده بيكسر عناد الكارت ويخليه يصغر */
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 6px !important; /* تصغير الفراغ جوه البرواز */
     box-sizing: border-box !important;
@@ -289,6 +289,18 @@ header img{
     max-width:220px !important;
     width:100%;
     height:auto;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+section{
+    padding:40px 15px !important;
+}
+
+#products{
+    padding:40px 15px !important;
 }
 }
 </style>
