@@ -220,8 +220,8 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
   /* 2. تقسيم الحاوية لعمودين متساويين إجبارياً */
   #products {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit,minmax(140px,1fr)) !important; /* إجبار عمودين 50% و 50% */
-    gap: 12px !important; /* مسافة صغيرة جداً ومناسبة للموبايل */
+    grid-template-columns: repeat(2,1fr) !important; /* إجبار عمودين 50% و 50% */
+    gap: 10px !important; /* مسافة صغيرة جداً ومناسبة للموبايل */
     padding: 10px !important;
     width: 100% !important;
     box-sizing: border-box !important;
@@ -229,7 +229,7 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
 
   /* 3. تصغير حجم البرواز (الكارد) نفسه ليتناسب مع الطول */
   .product-card {
-    width: 100% !important; /* يلغي أي width ثابت قديم */
+    width: 100px !important; /* يلغي أي width ثابت قديم */
     min-width: 0 !important; /* يمنع الكارد من مقاومة التصغير */
     max-width: 100% !important;
     margin: 0 !important;
