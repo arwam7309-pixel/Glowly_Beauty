@@ -205,87 +205,48 @@ footer{background:#222;color:white;text-align:center;padding:40px 20px}
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   
-  /* 1. ضبط الهيدر (الخلفية) ليناسب الطول والعرض */
-  header {
-    padding: 80px 15px !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    height: auto !important;
-  }
-
-  header h1 {
-    font-size: 1.5rem !important;
-  }
-
-  /* 2. تقسيم الحاوية لعمودين متساويين إجبارياً */
-  #products {
+  /* 1. إجبار حاوية المنتجات على الانقسام لعمودين مهما كان اسمها */
+  .products, #products, [id*="products"], [class*="products"] {
     display: grid !important;
-    grid-template-columns: repeat(2,1fr) !important; /* إجبار عمودين 50% و 50% */
-    gap: 10px !important; /* مسافة صغيرة جداً ومناسبة للموبايل */
+    grid-template-columns: repeat(2, 1fr) !important; /* عمودين متساويين بالملي */
+    gap: 10px !important; /* مسافة صغيرة جداً */
     padding: 10px !important;
     width: 100% !important;
-    box-sizing: border-box !important;
+    max-width: 100% !important;
   }
 
-  /* 3. تصغير حجم البرواز (الكارد) نفسه ليتناسب مع الطول */
-  .product-card {
-    width: 100px !important; /* يلغي أي width ثابت قديم */
-    min-width: 0 !important; /* يمنع الكارد من مقاومة التصغير */
+  /* 2. تجريد الكروت من أي أبعاد ثابتة قديمة وتصغير برواز المنتج */
+  .card, .product-card, .products > div, #products > div {
+    width: 100% !important;
+    min-width: 0 !important; /* السطر ده بيكسر عناد الكارت ويخليه يصغر */
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 8px !important; /* تقليل الهوامش الداخلية للبرواز */
+    padding: 6px !important; /* تصغير الفراغ جوه البرواز */
     box-sizing: border-box !important;
-    border-radius: 8px !important; /* تنعيم الحواف */
   }
 
-  /* 4. تصغير الصورة داخل البرواز */
-  .product-card img {
-    width: 100% !important;
-    height: 120px !important; /* تقليل الارتفاع لتوفير مساحة طوية */
+  /* 3. تصغير صورة المنتج عشان متطلعش بره البرواز */
+  .card img, .product-card img, .products div img {
+    height: 110px !important; /* ارتفاع مثالي جداً لشاشات الموبايل بالطول */
     object-fit: cover !important;
-    border-radius: 6px !important;
   }
 
-  /* 5. تصغير النصوص والأزرار داخل البرواز عشان ميعملوش زحمة */
-  .product-card h3 {
-    font-size: 0.85rem !important; /* تصغير اسم المنتج */
-    margin: 4px 0 !important;
-    white-space: nowrap; /* يمنع النص من النزول لسطرين وتشويه الارتفاع */
-    overflow: hidden;
-    text-overflow: ellipsis; /* يضع ثلاث نقاط إذا كان الاسم طويلاً */
-  }
-
-  .product-card .price {
+  /* 4. تصغير الأزرار والخطوط عشان تاخد مساحتها الجديدة جنب بعض */
+  .card h3, .product-card h3 {
     font-size: 0.8rem !important;
-    margin-bottom: 6px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* لو الاسم طويل يحط 3 نقط بدل ما يبوظ الدنيا */
   }
 
-  /* تصغير زر "إضافة للعربة" و "التفاصيل" ليتناسب مع البرواز الصغير */
-  .product-card .btn, 
-  .product-card button {
-    padding: 6px 8px !important;
+  .card p, .product-card .price {
     font-size: 0.75rem !important;
+  }
+
+  .card .btn, .product-card .btn, .card button, .product-card button {
+    padding: 5px 4px !important;
+    font-size: 0.7rem !important;
     width: 100% !important;
-    display: block !important;
-  }
-
-  /* 6. ضبط النوفبار لمنع أي تمدد عرضي */
-  nav {
-    flex-direction: column !important;
-    padding: 10px !important;
-    gap: 8px !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 12px !important;
-  }
-
-  /* قفل الشاشة تماماً لمنع أي هزة يميناً ويساراً */
-  html, body {
-    overflow-x: hidden !important;
-    width: 100%;
   }
 }
 </style>
